@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">TP7 : un quiz interactif !</string>
+    <string name="app_next">Suite</string>
+    <string name="app_true">\nBonne réponse !\n</string>
+    <string name="app_false">\nMauvaise réponse...\n</string>
+    <string name="app_result">\nVotre résultat est :\n</string>
+    <string name="app_restart">\nRejouer ?\n</string>
+</resources>
