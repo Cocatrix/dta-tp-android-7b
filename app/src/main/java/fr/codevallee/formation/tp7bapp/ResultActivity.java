@@ -24,6 +24,7 @@ public class ResultActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
 
+        Log.d("ACTION","Getting score and displaying result");
         Intent intent = getIntent();
         Integer result = intent.getIntExtra("score", 0);
         Integer nbQuestions = intent.getIntExtra("nbQuestions", 0);
@@ -35,7 +36,7 @@ public class ResultActivity extends Activity {
         boutonRestart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d("BOUTON","Bouton Restart");
+                Log.d("BUTTON","Restart Button");
                 Intent intentNewQuestion = new Intent(ResultActivity.this,QuestionActivity.class);
                 intentNewQuestion.putExtra("restart", true);
                 startActivity(intentNewQuestion);

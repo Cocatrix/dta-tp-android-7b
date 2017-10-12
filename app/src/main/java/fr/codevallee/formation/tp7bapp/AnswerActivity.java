@@ -26,6 +26,7 @@ public class AnswerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_answer);
 
+        Log.d("ACTION","Displaying answer");
         final Intent intentReceived = getIntent();
         boolean isCorrectAnswer = intentReceived.getBooleanExtra("isCorrectAnswer",false); // Getting value to know if user was right or wrong
         String answerGiven = intentReceived.getStringExtra("answerGiven"); // Getting user's answer to display it again
@@ -47,7 +48,7 @@ public class AnswerActivity extends AppCompatActivity {
         bouton3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d("BOUTON","Bouton 3");
+                Log.d("BUTTON","Button 3");
                 Intent intentNewQuestion = new Intent(AnswerActivity.this,QuestionActivity.class);
                 startActivity(intentNewQuestion);
             }

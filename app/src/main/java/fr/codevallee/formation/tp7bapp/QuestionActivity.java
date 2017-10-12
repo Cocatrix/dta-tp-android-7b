@@ -31,8 +31,10 @@ public class QuestionActivity extends AppCompatActivity {
     private static Question currentQuestion;
     private static int nbRightAnswers;
     private static boolean answeredRight;
+
     /**
      * This method launches the first activity : screen with question and two possible answers.
+     *
      * @param savedInstanceState
      */
     @Override
@@ -49,13 +51,14 @@ public class QuestionActivity extends AppCompatActivity {
          *  have been browsed before.
          */
         Intent intentRestart = getIntent();
-        boolean restart = intentRestart.getBooleanExtra("restart",false);
-        if(restart) {
+        boolean restart = intentRestart.getBooleanExtra("restart", false);
+        if (restart) {
+            Log.d("ACTION", "Reinitialise the QuestionManager");
             this.questionManager = new QuestionManager(0);
         }
 
         // If we still have questions to ask
-        if(this.questionManager.hasNext()) {
+        if (this.questionManager.hasNext()) {
             this.currentQuestion = this.questionManager.getQuestion(questionManager.getIndex());
 
             // (re-)filling the TextView with current question
@@ -68,11 +71,11 @@ public class QuestionActivity extends AppCompatActivity {
             bouton1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Log.d("BOUTON", "Bouton 1");
+                    Log.d("BUTTON", "Button 1");
                     Intent intent1 = new Intent(QuestionActivity.this, AnswerActivity.class);
                     intent1.putExtra("answerGiven", QuestionActivity.currentQuestion.getAnswerOne());
                     QuestionActivity.answeredRight = QuestionActivity.currentQuestion.getTrueAnswer() == 1;
-                    if(QuestionActivity.answeredRight){
+                    if (QuestionActivity.answeredRight) {
                         QuestionActivity.nbRightAnswers++;
                     }
                     intent1.putExtra("isCorrectAnswer", answeredRight);
@@ -86,7 +89,7 @@ public class QuestionActivity extends AppCompatActivity {
             bouton2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Log.d("BOUTON", "Bouton 2");
+                    Log.d("BUTTON", "Button 2");
                     Intent intent2 = new Intent(QuestionActivity.this, AnswerActivity.class);
                     intent2.putExtra("answerGiven", QuestionActivity.currentQuestion.getAnswerTwo());
                     intent2.putExtra("isCorrectAnswer", QuestionActivity.currentQuestion.getTrueAnswer() == 2);
@@ -94,6 +97,7 @@ public class QuestionActivity extends AppCompatActivity {
                 }
             });
         } else { // Otherwise, go to final screen
+            Log.d("MOVE", "Going to ResultActivity");
             Intent intent0 = new Intent(QuestionActivity.this, ResultActivity.class);
             intent0.putExtra("score", this.nbRightAnswers);
             intent0.putExtra("nbQuestions", this.questionManager.getSize());
