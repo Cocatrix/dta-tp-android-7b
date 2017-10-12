@@ -14,7 +14,7 @@ import android.widget.TextView;
  * @date 11/10/2017
  * This activity is the first triggered activity.
  *
- * We use a QuestionManager instance that contains all questions.
+ * We use a QuestionIterator instance that contains all questions.
  * It has a method getQuestion (to get the next one),
  * and a method hasNext() (to know whether we continue).
  *
@@ -27,7 +27,7 @@ import android.widget.TextView;
  *      We go to the final screen to print the score.
  */
 public class QuestionActivity extends AppCompatActivity {
-    private static QuestionManager questionManager = new QuestionManager(0);
+    private static QuestionIterator questionIterator = new QuestionIterator(0);
     private static Question currentQuestion;
     private static int nbRightAnswers;
     private static boolean answeredRight;
@@ -46,20 +46,20 @@ public class QuestionActivity extends AppCompatActivity {
          * This intent is just in case this activity is called by resultActivity.
          * This happens if user wants to restart. We check the boolean.
          * It's of course "false" by default (then only true if called by resultActivity).
-         * We  do this because the QuestionManager need to be reset.
+         * We  do this because the QuestionIterator need to be reset.
          * Otherwise, after a quiz, hasNext() will still return false, because all the questions
          *  have been browsed before.
          */
         Intent intentRestart = getIntent();
         boolean restart = intentRestart.getBooleanExtra("restart", false);
         if (restart) {
-            Log.d("ACTION", "Reinitialise the QuestionManager");
-            this.questionManager = new QuestionManager(0);
+            Log.d("ACTION", "Reinitialise the QuestionIterator");
+            this.questionIterator = new QuestionIterator(0);
         }
 
         // If we still have questions to ask
-        if (this.questionManager.hasNext()) {
-            this.currentQuestion = this.questionManager.getQuestion(questionManager.getIndex());
+        if (this.questionIterator.hasNext()) {
+            this.currentQuestion = this.questionIterator.next();
 
             // (re-)filling the TextView with current question
             TextView question = (TextView) findViewById(R.id.question);
@@ -100,7 +100,7 @@ public class QuestionActivity extends AppCompatActivity {
             Log.d("MOVE", "Going to ResultActivity");
             Intent intent0 = new Intent(QuestionActivity.this, ResultActivity.class);
             intent0.putExtra("score", this.nbRightAnswers);
-            intent0.putExtra("nbQuestions", this.questionManager.getSize());
+            intent0.putExtra("nbQuestions", this.questionIterator.getSize());
             startActivity(intent0);
         }
     }
