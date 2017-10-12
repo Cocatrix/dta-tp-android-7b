@@ -8,23 +8,19 @@
     <TextView
         android:id="@+id/userAnswer"
 
-        android:textSize="25sp"
+        android:textAppearance="@style/answerText"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:textAllCaps="true"
-        android:text="" />
+        android:layout_height="wrap_content" />
     <View
         android:layout_width="fill_parent"
         android:layout_height="0.2dp"
         android:id="@+id/separator"
-        android:visibility="visible"
         android:background="@android:color/darker_gray"/>
 
     <TextView
         android:id="@+id/incorrect"
 
-        android:textSize="25sp"
+        android:textAppearance="@style/normalText"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:visibility="gone"
@@ -34,7 +30,7 @@
     <TextView
         android:id="@+id/correct"
 
-        android:textSize="25sp"
+        android:textAppearance="@style/normalText"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:visibility="gone"
@@ -45,7 +41,7 @@
     <Button
         android:id="@+id/button3"
 
-        android:textSize="25sp"
+        android:textAppearance="@style/normalText"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
 
