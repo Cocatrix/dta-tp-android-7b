@@ -8,10 +8,12 @@
     <TextView
         android:id="@+id/userAnswer"
 
-        android:textAppearance="@style/answerText"
+        android:textAppearance="@style/normalText"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center" />
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        android:textAllCaps="true"/>
     <View
         android:layout_width="fill_parent"
         android:layout_height="0.2dp"
