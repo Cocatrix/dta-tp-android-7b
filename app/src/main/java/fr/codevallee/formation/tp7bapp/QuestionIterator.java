@@ -1,12 +1,13 @@
 package fr.codevallee.formation.tp7bapp;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * Created by maximerevel on 11/10/2017.
  */
 
-public class QuestionManager {
+public class QuestionIterator implements Iterator {
     /**
      * @author maximerevel
      * @date 11/10/2017
@@ -17,18 +18,14 @@ public class QuestionManager {
     private ArrayList<Question> pool;
     private int index = 0; // current position in the array
 
-    private QuestionManager() {
-        this.pool = new ArrayList<Question>();
-    }
-
     /**
      * @param toSetIndex
      * Initialises the questions' array at index "toSetIndex".
      * Ten questions inside.
      */
-    public QuestionManager(int toSetIndex) {
+    public QuestionIterator(int toSetIndex) {
         // This constructor is a substitute to create ten questions
-        this();
+        this.pool = new ArrayList<Question>();
         this.index = toSetIndex;
         this.addQuestion("Combien d'épisodes de Star Wars sont sortis ?","6 épisodes", "7 épisodes", 2);
         this.addQuestion("Dans Z/5Z, combien fait 3 fois 3 ?","4", "9", 1);
@@ -51,9 +48,8 @@ public class QuestionManager {
         return this.index < this.pool.size();
     }
 
-    public Question getQuestion(int receivedIndex) {
-        this.index++;
-        return this.pool.get(receivedIndex);
+    public Question next() {
+        return this.pool.get(index++);
     }
 
     public int getSize(){
