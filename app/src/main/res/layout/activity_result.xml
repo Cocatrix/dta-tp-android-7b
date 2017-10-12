@@ -6,7 +6,8 @@
     <TextView
         android:id="@+id/result"
 
-        android:textSize="25sp"
+        android:textSize="35sp"
+        android:textAlignment="center"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
 
