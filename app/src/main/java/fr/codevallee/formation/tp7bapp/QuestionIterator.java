@@ -21,10 +21,11 @@ public class QuestionIterator implements Iterator {
     /**
      * @param toSetIndex
      * Initialises the questions' array at index "toSetIndex".
+     * Just put zero to initialise it correctly.
      * Ten questions inside.
      */
     public QuestionIterator(int toSetIndex) {
-        // This constructor is a substitute to create ten questions
+        // This constructor is a way to create ten questions
         this.pool = new ArrayList<Question>();
         this.index = toSetIndex;
         this.addQuestion("Combien d'épisodes de Star Wars sont sortis ?","6 épisodes", "7 épisodes", 2);
