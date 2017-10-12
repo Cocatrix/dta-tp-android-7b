@@ -9,10 +9,16 @@ import android.widget.Button;
 import android.widget.TextView;
 
 /**
- * Created by maximerevel on 11/10/2017.
+ * @author maximerevel
+ * @date 11/10/2017
+ * This activity rules the final screen. It displays the score : number of correct answers / number of asked questions.
+ * Then a button allows to restart the quiz.
  */
-
 public class ResultActivity extends Activity {
+    /**
+     * This method launches the third and last activity : screen with score result.
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

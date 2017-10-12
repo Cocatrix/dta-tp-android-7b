@@ -8,19 +8,28 @@ import java.util.ArrayList;
 
 public class QuestionManager {
     /**
-     * It creates an instance of a sets of questions to ask
+     * @author maximerevel
+     * @date 11/10/2017
+     * This class allows to manage a pool of questions.
+     * Questions are written in this class's constructor for convenience, we could read them somewhere with other methods.
      */
+
     private ArrayList<Question> pool;
     private int index = 0; // current position in the array
 
-    public QuestionManager() {
+    private QuestionManager() {
         this.pool = new ArrayList<Question>();
     }
 
-    public QuestionManager(int lastIndex) {
+    /**
+     * @param toSetIndex
+     * Initialises the questions' array at index "toSetIndex".
+     * Ten questions inside.
+     */
+    public QuestionManager(int toSetIndex) {
         // This constructor is a substitute to create ten questions
         this();
-        this.index = lastIndex;
+        this.index = toSetIndex;
         this.addQuestion("Combien d'épisodes de Star Wars sont sortis ?","6 épisodes", "7 épisodes", 2);
         this.addQuestion("Dans Z/5Z, combien fait 3 fois 3 ?","4", "9", 1);
         this.addQuestion("La réponse de l'univers est...","42", "dans la question", 1);

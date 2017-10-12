@@ -3,18 +3,24 @@ package fr.codevallee.formation.tp7bapp;
 import java.io.Serializable;
 
 /**
- * Created by maximerevel on 11/10/2017.
+ * @author maximerevel
+ * @date 11/10/2017
+ * This class represents a question with its possible answers and the true answer's number.
  */
 
 public class Question {
-    /**
-     * Represents a question, its two possible answers and the true one.
-     */
+
     private String question;
     private String answerOne;
     private String answerTwo;
     private int trueAnswer; // starts at one
-
+    /**
+     * @param question Question to be asked
+     * @param answerOne First possible answer
+     * @param answerTwo Second possible answer
+     * @param trueAnswer Number of the true answer (1 or 2)
+     * Represents a question, its two possible answers and the true one.
+     */
     public Question(String question, String answerOne, String answerTwo, int trueAnswer) {
         this.question = question;
         this.answerOne = answerOne;
